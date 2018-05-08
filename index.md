@@ -1,1 +1,47 @@
-<iframe src="http://hiswing.gitee.io/blog" frameborder="0" scrolling="no" id="external-frame" onload="setIframeHeight(this)"></iframe>
+
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<meta charset="utf-8" />
+	<title>Iframe height demo</title>
+	<style media="screen,print">
+	#body {
+		width:70em;
+		max-width:100%;
+		margin:0 auto;
+	}
+	iframe {
+		width:100%;
+		margin:0 0 1em;
+		border:0;
+	}
+	</style>
+	<script>
+		/*
+		 * When the iframe is on a different subdomain, uncomment the following line
+		 * and change "example.com" to your domain.
+		 */
+		// document.domain = "example.com";
+		function setIframeHeight(iframe) {
+			if (iframe) {
+				var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+				if (iframeWin.document.body) {
+					iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+				}
+			}
+		};
+
+		window.onload = function () {
+			setIframeHeight(document.getElementById('external-frame'));
+		};
+	</script>
+</head>
+<body>
+	<div id="body">
+		<iframe src="http://hiswing.gitee.io/blog"></iframe>
+		<div id="labfooter">
+</div>
+	</div>
+</body>
+</html>
